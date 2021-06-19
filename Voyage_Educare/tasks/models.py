@@ -14,7 +14,7 @@ class Tasks(models.Model):
 class Status(models.Model):
     teacher_id=models.ForeignKey(Teacher,on_delete=models.CASCADE,)
     month = models.CharField(max_length=50)
-    task_id=models.ForeignKey(Tasks)
+    task_id=models.ForeignKey(Tasks,on_delete=models.CASCADE,)
     points=models.FloatField()
     isCompleted=models.BooleanField()
 
@@ -26,7 +26,7 @@ class FeedBack(models.Model):
     elif(by_role=="School Leader"):
         by_id=models.ForeignKey(SchoolLeader,on_delete=models.CASCADE,)
     else:
-        by_id=models.ForeignKey(NGO)
+        by_id=models.ForeignKey(NGO,on_delete=models.CASCADE,)
     desc=models.CharField(max_length=500)
     
 
